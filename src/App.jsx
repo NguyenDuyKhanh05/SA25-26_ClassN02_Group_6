@@ -62,6 +62,9 @@ import CRM from './components/CRM/CRM'; // <--- 1. Import CRM
 import Finance from './components/Finance/Finance';
 import Staff from './components/Staff/Staff';
 import Marketing from './components/Marketing/Marketing';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import Statistics from './pages/Statistics';
+import SystemSettings from './pages/SystemSettings';
 // Placeholder cho các trang chưa làm
 const Placeholder = ({t}) => (
     <div className="w-full h-full p-[30px] animate-fadeIn text-accent font-bold text-xl">
@@ -103,6 +106,17 @@ function App() {
         <MainContent />
       </div>
     </CartProvider>
+  );
+}
+function App() {
+  return (
+    <Router>
+      <Routes>
+        {/* Các route khác của bạn */}
+        <Route path="/statistics" element={<Statistics />} />
+        <Route path="/system" element={<SystemSettings />} />
+      </Routes>
+    </Router>
   );
 }
 
